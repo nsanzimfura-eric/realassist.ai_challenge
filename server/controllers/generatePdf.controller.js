@@ -1,11 +1,22 @@
-const puppeteer = require("puppeteer");
+// const puppeteer = require("puppeteer");
 const { hostname } = require("../constants/constants");
 
 const generatePdfControler = (_, res) => {
   (async () => {
-    let browser;
+    const browser = await puppeteer.launch({
+      args: [
+        "--disable-setuid-sandbox",
+        "--no-sandbox",
+        "--single-process",
+        "--no-zygote",
+      ],
+      executablePath:
+        process.env.NODE_ENV === "production"
+          ? process.env.PUPPETEER_EXECUTABLE_PATH
+          : puppeteer.executablePath(),
+    });
+
     try {
-      browser = await puppeteer.launch({ headless: "new" });
       const page = await browser.newPage();
       await page.goto(hostname);
       await page.waitForSelector("img");

@@ -1,5 +1,6 @@
 const express = require("express");
 const router = require("./routes/generatePdf.route");
+require("dotenv").config();
 
 const app = express();
 app.use((req, res, next) => {
