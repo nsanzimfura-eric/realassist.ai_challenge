@@ -1,17 +1,20 @@
 import "./App.css";
-import { useGetData } from "./hooks/useGetData";
+import { useState } from "react";
+import { useGetDataPdf } from "./hooks/useGetData";
 
 function App() {
-  const { loading, data, error, handleGetData } = useGetData();
+  const { loading, handleDownload } = useGetDataPdf();
+  const [showDownloadBtn, setShowDownloadBtn] = useState(true);
 
   const handleDownloadPdf = async () => {
-    handleGetData();
+    setShowDownloadBtn(false);
+    handleDownload();
   };
 
   return (
     <div className="App">
       <div className="actions_tab">
-        {loading && (
+        {(showDownloadBtn || !loading) && (
           <button className="btn" onClick={handleDownloadPdf}>
             Download Pdf
           </button>
