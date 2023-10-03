@@ -19,7 +19,12 @@ const generatePdfControler = (_, res) => {
     try {
       const page = await browser.newPage();
       await page.goto(hostname);
+      await page.setViewport({ width: 1920, height: 1080 });
       await page.waitForSelector("img");
+
+      await page.goto(hostname);
+
+      await page.waitForTimeout(3000);
       const pdfBuffer = await page.pdf({ format: "A4" });
       res.setHeader("Content-Type", "application/pdf");
       res.setHeader(
