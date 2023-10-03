@@ -1,5 +1,5 @@
-import express from "express";
-import generatePdfControler from "../controllers/generatePdf.controller";
+const express = require("express");
+const generatePdfControler = require("../controllers/generatePdf.controller");
 
 const router = express.Router();
 
