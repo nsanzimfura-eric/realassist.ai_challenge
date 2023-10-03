@@ -1,4 +1,4 @@
-// const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer");
 const { hostname } = require("../constants/constants");
 
 const generatePdfControler = (_, res) => {
