@@ -15,7 +15,7 @@ const generatePdfControler = async (req, res) => {
       "attachment; filename=market-insights.pdf"
     );
 
-    res.status(200).send({ message: "Success", pdfBuffer });
+    res.send(pdfBuffer);
   } catch (error) {
     console.error("Error generating PDF:", error);
     res.status(500).send("Error generating PDF");
