@@ -8,6 +8,7 @@ const generatePdfControler = (_, res) => {
       browser = await puppeteer.launch({ headless: true });
       const page = await browser.newPage();
       await page.goto(hostname);
+      await page.waitForSelector("img");
       const pdfBuffer = await page.pdf({ format: "A4" });
       res.setHeader("Content-Type", "application/pdf");
       res.setHeader(
