@@ -14,11 +14,9 @@ function App() {
   return (
     <div className="App">
       <div className="actions_tab">
-        {(showDownloadBtn || !loading) && (
-          <button className="btn" onClick={handleDownloadPdf}>
-            Download Pdf
-          </button>
-        )}
+        <button className="btn" onClick={handleDownloadPdf}>
+          {loading ? "Loading ..." : "Download Pdf"}
+        </button>
       </div>
       <div className="content">
         <img
