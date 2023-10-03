@@ -5,7 +5,7 @@ const generatePdfControler = (_, res) => {
   (async () => {
     let browser;
     try {
-      browser = await puppeteer.launch({ headless: true });
+      browser = await puppeteer.launch({ headless: "new" });
       const page = await browser.newPage();
       await page.goto(hostname);
       await page.waitForSelector("img");
