@@ -4,7 +4,7 @@ const { hostname } = require("../constants/constants");
 const generatePdfControler = async (req, res) => {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.goto(hostname);
+  await page.goto(hostname).promise();
 
   try {
     const pdfBuffer = await page.pdf({ format: "A4" });
