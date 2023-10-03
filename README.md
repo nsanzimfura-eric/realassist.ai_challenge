@@ -1,1 +1,3 @@
-# realassist.ai_challenge
+# Realassist.ai_challenge
+
+MERN stack challenge of generating pdf files
