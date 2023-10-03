@@ -28,4 +28,4 @@ RUN npm uninstall puppeteer
 RUN npm i puppeteer
 
 # Define the command to run the app
-CMD ["node", "convert.js"]
+CMD ["node", "index.js"]
