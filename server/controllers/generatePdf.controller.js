@@ -1,31 +1,31 @@
-const puppeteer = require("puppeteer");
 const { hostname } = require("../constants/constants");
+const { executablePath } = require("puppeteer");
+
+const puppeteer = require("puppeteer-extra");
+const hidden = require("puppeteer-extra-plugin-stealth");
 
 const generatePdfControler = (_, res) => {
   (async () => {
-    const browser = await puppeteer.launch({
-      args: [
-        "--disable-setuid-sandbox",
-        "--no-sandbox",
-        "--single-process",
-        "--no-zygote",
-      ],
-      headless: false,
-      executablePath:
-        process.env.NODE_ENV === "production"
-          ? process.env.PUPPETEER_EXECUTABLE_PATH
-          : puppeteer.executablePath(),
-    });
-
+    let browser;
     try {
+      puppeteer.use(hidden());
+      browser = await puppeteer.launch({
+        args: ["--no-sandbox"],
+        headless: false,
+        ignoreHTTPSErrors: true,
+        executablePath: executablePath(),
+      });
+
       const page = await browser.newPage();
-      await page.goto(hostname);
-      await page.setViewport({ width: 1920, height: 1080 });
+      await page.goto(hostname, { waitUntil: "networkidle0" });
+      await page.setViewport({
+        width: 1920,
+        height: 1080,
+        deviceScaleFactor: 1,
+      });
       await page.waitForSelector("img");
-
-      await page.goto(hostname);
-
       await page.waitForTimeout(3000);
+
       const pdfBuffer = await page.pdf({ format: "A4" });
       res.setHeader("Content-Type", "application/pdf");
       res.setHeader(
