@@ -1,11 +1,21 @@
 import "./App.css";
-import { server_url } from "./constants/constant";
+import { useGetData } from "./hooks/useGetData";
 
 function App() {
+  const { loading, data, error, handleGetData } = useGetData();
+
+  const handleDownloadPdf = async () => {
+    handleGetData();
+  };
+
   return (
     <div className="App">
       <div className="actions_tab">
-        <button className="btn">Download Pdf</button>
+        {loading && (
+          <button className="btn" onClick={handleDownloadPdf}>
+            Download Pdf
+          </button>
+        )}
       </div>
       <div className="content">
         <img
