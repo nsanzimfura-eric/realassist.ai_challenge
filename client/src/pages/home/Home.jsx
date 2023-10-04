@@ -18,12 +18,12 @@ export default function HomePage() {
     handleDownload();
   };
   if (loading || error)
-    return alert(loading ? "Loading Pdf file..." : `Error: ${error.message}`);
+    alert(loading ? "Loading Pdf file..." : `Error: ${error.message}`);
 
   return (
     <div className="home">
       {!showSelectKeys && (
-        <div className="actions">
+        <div className="actions" id="homePage">
           {!hidePrintBtn && (
             <img
               src="./images/back.png"
