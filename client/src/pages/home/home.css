@@ -9,6 +9,7 @@
   margin: 0;
   flex-direction: column;
   gap: 20px;
+  overflow: hidden;
 }
 
 .actions {
@@ -43,7 +44,7 @@
 .print {
   width: 50px;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1024px) {
   .home {
     width: 70%;
   }

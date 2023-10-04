@@ -11,6 +11,7 @@
   flex-direction: column;
   gap: 14px;
   border-radius: 16px 16px 0px 0px;
+  overflow: hidden;
 }
 .graphs * {
   font-family: "BeausiteClassicTrial-Light-BF6424edc039e51.otf", sans-serif;

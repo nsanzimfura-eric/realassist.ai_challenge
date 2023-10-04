@@ -17,7 +17,11 @@ export default function Graphs(props) {
     if (!loading && !error) {
       setAllData(apiData?.data);
       setRenderPrintWhenApiMounts(false);
-      localStorage.setItem("lineData", JSON.stringify(dataDemo));
+      if (!JSON.parse(localStorage.getItem("lineData"))) {
+        console.lg(".............");
+        localStorage.setItem("lineData", JSON.stringify(dataDemo));
+      }
+      setLineData(JSON.parse(localStorage.getItem("lineData")));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, error]);
