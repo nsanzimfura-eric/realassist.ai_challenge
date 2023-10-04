@@ -26,6 +26,9 @@
   max-width: 80%;
   max-height: 80%;
 }
+.up_view {
+  transform: rotate(180deg);
+}
 .logoo {
   height: 40px;
   aspect-ratio: 1/1;

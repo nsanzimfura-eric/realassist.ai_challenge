@@ -3,12 +3,14 @@ import "./graphs.css";
 import { Line } from "@ant-design/plots";
 import useFetchAPI from "../../hooks/useFetch";
 import { baseAPI_route } from "../../constants/constant";
+import { dataDemo } from "./dataDemo";
 
-export default function Graphs() {
+export default function Graphs(props) {
+  const { showSelectKeys, handleGetBack } = props;
   const { loading, data: apiData, error } = useFetchAPI(baseAPI_route);
 
   const [allData, setAllData] = useState();
-  const [lineData, setLineData] = useState([]);
+  const [lineData, setLineData] = useState(dataDemo);
 
   useEffect(() => {
     if (!loading && !error) {
@@ -17,7 +19,6 @@ export default function Graphs() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, error]);
 
-  console.log(loading, error, apiData, "test");
   if (loading) return <div className="loading_api">Loading API ...</div>;
   if (error) return <div className="error">Error Fetching API</div>;
 
@@ -75,6 +76,7 @@ export default function Graphs() {
       },
     ],
   };
+
   console.log(lineData, "line data");
   return (
     allData && (
@@ -84,23 +86,29 @@ export default function Graphs() {
             <img src="./images/logoo.png" alt="Logoo" className="logoo" />
             Crime
           </div>
-          <div className="toggleBtn">
-            <img src="./images/xx.png" alt="Down Arrow" className="btnDown" />
+          <div className="toggleBtn" onClick={() => handleGetBack()}>
+            <img
+              src="./images/xx.png"
+              alt="Down Arrow"
+              className={showSelectKeys ? "btnDown up_view" : "btnDown"}
+            />
           </div>
         </div>
         <div className="titleBox">
           <h1 className="h1">{allData.title}</h1>{" "}
           <img src="./images/upBlue.png" alt="upBlue" className="upBlue" />
         </div>
-        <select className="choices" onChange={handleChoiceChange}>
-          {allData?.keys?.map((choice, index) => {
-            return (
-              <option key={index} value={choice}>
-                {choice}
-              </option>
-            );
-          })}
-        </select>
+        {showSelectKeys && (
+          <select className="choices" onChange={handleChoiceChange}>
+            {allData?.keys?.map((choice, index) => {
+              return (
+                <option key={index} value={choice}>
+                  {choice}
+                </option>
+              );
+            })}
+          </select>
+        )}
         <div className="graphLines">
           <Line {...config} />
         </div>

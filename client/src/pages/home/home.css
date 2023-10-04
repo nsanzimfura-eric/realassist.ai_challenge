@@ -26,6 +26,17 @@
   background-color: transparent;
   border-radius: 10px;
 }
+.btnView {
+  background-color: transparent;
+  color: black;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.btnView:hover {
+  color: #1463ff;
+}
 .back {
   width: 100px;
 }
