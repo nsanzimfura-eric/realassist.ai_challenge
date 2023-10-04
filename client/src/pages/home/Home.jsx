@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./home.css";
 import Graphs from "../../components/graphs/graphs";
-import { useGetDataPdf } from "../../hooks/useGetData";
+import { useGetDataPdf } from "../../hooks/useGetPDF";
 
 export default function HomePage() {
   const [showSelectKeys, setShowSelectKeys] = useState(false);

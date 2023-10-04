@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { server_url } from "../constants/constant";
+import { baseURI, server_url } from "../constants/constant";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../utils/routes";
 
@@ -8,12 +8,15 @@ export const useGetDataPdf = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const nagitate = useNavigate();
+  const uiUrlToCovert = `${baseURI}/${ROUTES.download}`;
 
   const handleDownload = async () => {
+    nagitate(ROUTES.download);
     try {
-      nagitate(ROUTES.download);
       setLoading(true);
-      const response = await axios.get(server_url, { responseType: "blob" });
+      const response = await axios.get(`${server_url}?url=${uiUrlToCovert}`, {
+        responseType: "blob",
+      });
       const blob = new Blob([response.data], { type: "application/pdf" });
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");

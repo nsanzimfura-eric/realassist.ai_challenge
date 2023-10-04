@@ -10,6 +10,7 @@ export default function Download() {
     const graphData = JSON.parse(localStorage.getItem("lineData"));
     setData(graphData);
   }, []);
+  console.log(data, "data");
 
   const config = {
     data: data,
