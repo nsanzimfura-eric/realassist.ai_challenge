@@ -18,7 +18,6 @@ export default function Graphs(props) {
       setAllData(apiData?.data);
       setRenderPrintWhenApiMounts(false);
       if (!JSON.parse(localStorage.getItem("lineData"))) {
-        console.lg(".............");
         localStorage.setItem("lineData", JSON.stringify(dataDemo));
       }
       setLineData(JSON.parse(localStorage.getItem("lineData")));
