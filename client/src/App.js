@@ -3,12 +3,14 @@ import "./App.css";
 import { useGetDataPdf } from "./hooks/useGetData";
 
 function App() {
-  const { handleDownload } = useGetDataPdf();
+  const { handleDownload, loading } = useGetDataPdf();
 
   useEffect(() => {
     handleDownload();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  loading && alert("loading pdf...");
 
   return (
     <div className="App">
