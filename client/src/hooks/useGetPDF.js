@@ -15,7 +15,7 @@ export const useGetDataPdf = () => {
     nagitate(ROUTES.download);
     try {
       setLoading(true);
-      const response = await axios.get(`${server_url}?url=${uiUrlToCovert}`, {
+      const response = await axios.get(`${server_url}?url=${baseURI}`, {
         responseType: "blob",
       });
       const blob = new Blob([response.data], { type: "application/pdf" });
