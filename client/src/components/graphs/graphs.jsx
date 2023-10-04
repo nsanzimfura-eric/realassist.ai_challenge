@@ -27,7 +27,7 @@ export default function Graphs() {
     allData.data.forEach((data) => {
       Object.keys(data).filter((dataKey) =>
         dataKey === value
-          ? dataSelected.push({ year: data.data_key, value: data[dataKey] })
+          ? dataSelected.push({ year: data.data_year, value: data[dataKey] })
           : false
       );
     });

@@ -32,10 +32,15 @@
 .print {
   width: 50px;
 }
+@media screen and (max-width: 1200px) {
+  .home {
+    width: 70%;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .home {
-    width: 70%;
+    width: 80%;
   }
 }
 @media screen and (max-width: 500px) {
