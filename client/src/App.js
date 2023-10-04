@@ -9,8 +9,9 @@ export default function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path={ROUTES.home} element={<HomePage />} />
-          <Route path={ROUTES.download} element={<Download />} />
+          <Route path={ROUTES.download} element={<HomePage />} />
+          <Route path="*" element={<HomePage />} />
+          <Route path={ROUTES.home} element={<Download />} />
         </Routes>
       </Router>
     </div>
