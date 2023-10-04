@@ -1,28 +1,15 @@
-import { useEffect } from "react";
 import "./App.css";
-import { useGetDataPdf } from "./hooks/useGetData";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Download from "./pages/download/Download";
+import HomePage from "./pages/home/Home";
 
-function App() {
-  const { handleDownload, loading } = useGetDataPdf();
-
-  useEffect(() => {
-    handleDownload();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  loading && alert("loading pdf...");
-
+export default function App() {
   return (
     <div className="App">
-      <div className="content">
-        <img
-          src="/images/assist_svg.svg"
-          alt="Martet Insights"
-          className="insights"
-        />
-      </div>
+      <Router>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/download" component={Download} />
+      </Router>
     </div>
   );
 }
-
-export default App;

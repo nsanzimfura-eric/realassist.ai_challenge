@@ -7,8 +7,8 @@ export const useGetDataPdf = () => {
   const [loading, setLoading] = useState(false);
 
   const handleDownload = async () => {
-    setLoading(true);
     try {
+      setLoading(true);
       const response = await axios.get(server_url, { responseType: "blob" });
       const blob = new Blob([response.data], { type: "application/pdf" });
       const url = window.URL.createObjectURL(blob);
@@ -18,9 +18,9 @@ export const useGetDataPdf = () => {
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
-      setLoading(false);
     } catch (error) {
       setError(error);
+    } finally {
       setLoading(false);
     }
   };
