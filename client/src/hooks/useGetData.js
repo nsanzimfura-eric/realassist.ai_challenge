@@ -14,13 +14,13 @@ export const useGetDataPdf = () => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "market-insights.pdf";
+      a.download = "market_insights.pdf";
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
+      setLoading(false);
     } catch (error) {
       setError(error);
-    } finally {
       setLoading(false);
     }
   };

@@ -6,7 +6,7 @@ import { baseAPI_route } from "../../constants/constant";
 import { dataDemo } from "./dataDemo";
 
 export default function Graphs(props) {
-  const { showSelectKeys, handleGetBack } = props;
+  const { showSelectKeys, handleGetBack, setRenderPrintWhenApiMounts } = props;
   const { loading, data: apiData, error } = useFetchAPI(baseAPI_route);
 
   const [allData, setAllData] = useState();
@@ -15,6 +15,7 @@ export default function Graphs(props) {
   useEffect(() => {
     if (!loading && !error) {
       setAllData(apiData?.data);
+      setRenderPrintWhenApiMounts(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, error]);
@@ -85,7 +86,7 @@ export default function Graphs(props) {
             <img src="./images/logoo.png" alt="Logoo" className="logoo" />
             Crime
           </div>
-          <div className="toggleBtn" onClick={() => handleGetBack()}>
+          <div className="toggleBtn" onClick={handleGetBack}>
             <img
               src="./images/xx.png"
               alt="Down Arrow"

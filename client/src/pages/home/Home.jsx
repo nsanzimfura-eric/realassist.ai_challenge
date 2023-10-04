@@ -6,23 +6,27 @@ import { useGetDataPdf } from "../../hooks/useGetData";
 export default function HomePage() {
   const [showSelectKeys, setShowSelectKeys] = useState(false);
   const [hidePrintBtn, setHidePrintBtn] = useState(false);
-  const { handleDownload, loading, error } = useGetDataPdf();
+  const [renderPrintWhenApiMounts, setRenderPrintWhenApiMounts] =
+    useState(true);
+
+  const { handleDownload, error } = useGetDataPdf();
 
   const handleGetBack = () => {
     setShowSelectKeys(!showSelectKeys);
     setHidePrintBtn(false);
+    setRenderPrintWhenApiMounts(false);
   };
 
   const handlePrintPage = () => {
     setHidePrintBtn(true);
     handleDownload();
   };
-  if (loading || error)
-    alert(loading ? "Loading Pdf file..." : `Error: ${error.message}`);
+
+  if (error) alert(`Error: ${error.message}`);
 
   return (
     <div className="home">
-      {!showSelectKeys && (
+      {!showSelectKeys && !renderPrintWhenApiMounts && (
         <div className="actions" id="homePage">
           {!hidePrintBtn && (
             <img
@@ -42,7 +46,11 @@ export default function HomePage() {
           )}
         </div>
       )}
-      <Graphs showSelectKeys={showSelectKeys} handleGetBack={handleGetBack} />
+      <Graphs
+        setRenderPrintWhenApiMounts={setRenderPrintWhenApiMounts}
+        showSelectKeys={showSelectKeys}
+        handleGetBack={handleGetBack}
+      />
     </div>
   );
 }
