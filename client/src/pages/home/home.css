@@ -1,2 +1,34 @@
 .home {
+  width: 90%;
+  height: 90%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.actions {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+}
+.back,
+.print {
+  height: 40px;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 10px;
+}
+.back {
+  width: 100px;
+}
+.print {
+  width: 50px;
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-function useDataLoader(url) {
+function useFetchAPI(url) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -26,4 +26,4 @@ function useDataLoader(url) {
   return { data, loading, error };
 }
 
-export default useDataLoader;
+export default useFetchAPI;

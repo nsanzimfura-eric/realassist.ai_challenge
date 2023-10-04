@@ -1,2 +1,47 @@
 .graphs {
+  min-width: 80vw;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  color: black;
+  flex-direction: column;
+  gap: 14px;
+}
+.titleBox {
+  display: flex;
+  align-items: baseline;
+}
+.title {
+  color: #1463ff;
+}
+.loading_api {
+  font-size: 50px;
+  text-align: center;
+  color: #1463ff;
+}
+.error {
+  font-size: 20px;
+  color: red;
+  text-align: center;
+}
+.choices {
+  width: 100%;
+  border: 1px solid #1463ff;
+  border-radius: 0;
+  padding: 10px;
+}
+.choices:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+.footer {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
