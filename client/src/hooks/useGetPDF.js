@@ -4,11 +4,12 @@ import { baseURI, server_url } from "../constants/constant";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../utils/routes";
 
+const uiUrlToCovert = `${baseURI}/${ROUTES.download}`;
+
 export const useGetDataPdf = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const nagitate = useNavigate();
-  const uiUrlToCovert = `${baseURI}/${ROUTES.download}`;
 
   const handleDownload = async () => {
     nagitate(ROUTES.download);
