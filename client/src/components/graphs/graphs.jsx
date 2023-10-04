@@ -79,6 +79,15 @@ export default function Graphs() {
   return (
     allData && (
       <div className="graphs">
+        <div className="header">
+          <div className="crime">
+            <img src="./images/logoo.png" alt="Logoo" className="logoo" />
+            Crime
+          </div>
+          <div className="toggleBtn">
+            <img src="./images/xx.png" alt="Down Arrow" className="btnDown" />
+          </div>
+        </div>
         <div className="titleBox">
           <h1 className="h1">{allData.title}</h1>{" "}
           <img src="./images/upBlue.png" alt="upBlue" className="upBlue" />
@@ -92,7 +101,9 @@ export default function Graphs() {
             );
           })}
         </select>
-        <Line {...config} />
+        <div className="graphLines">
+          <Line {...config} />
+        </div>
         <div className="footer">
           <span className="src">Source(s):FBI</span>
         </div>
