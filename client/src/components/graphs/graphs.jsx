@@ -106,7 +106,7 @@ export default function Graphs(props) {
           <img src="./images/upBlue.png" alt="upBlue" className="upBlue" />
         </div>
         {showSelectKeys && (
-          <select className="choices" onChange={handleChoiceChange}>
+          <select className="choices" onChange={handleChoiceChange} id="select">
             {allData?.keys?.map((choice, index) => {
               return (
                 <option key={index} value={choice}>
