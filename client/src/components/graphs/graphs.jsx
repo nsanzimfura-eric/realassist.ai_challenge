@@ -10,12 +10,14 @@ export default function Graphs(props) {
   const { loading, data: apiData, error } = useFetchAPI(baseAPI_route);
 
   const [allData, setAllData] = useState();
+
   const [lineData, setLineData] = useState(dataDemo);
 
   useEffect(() => {
     if (!loading && !error) {
       setAllData(apiData?.data);
       setRenderPrintWhenApiMounts(false);
+      localStorage.setItem("lineData", JSON.stringify(dataDemo));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, error]);
@@ -34,6 +36,7 @@ export default function Graphs(props) {
       );
     });
     setLineData(dataSelected);
+    localStorage.setItem("lineData", JSON.stringify(dataSelected));
   };
 
   // configs
