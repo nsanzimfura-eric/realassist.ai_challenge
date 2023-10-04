@@ -77,7 +77,6 @@ export default function Graphs(props) {
     ],
   };
 
-  console.log(lineData, "line data");
   return (
     allData && (
       <div className="graphs">
