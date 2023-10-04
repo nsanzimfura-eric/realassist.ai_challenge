@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./home.css";
 import Graphs from "../../components/graphs/graphs";
-import "./download.css";
 import { useGetDataPdf } from "../../hooks/useGetData";
 
 export default function HomePage() {
