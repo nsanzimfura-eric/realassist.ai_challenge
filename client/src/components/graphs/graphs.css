@@ -1,5 +1,5 @@
 .graphs {
-  min-width: 80vw;
+  min-width: 100%;
   min-height: 50vh;
   display: flex;
   align-items: center;
@@ -11,10 +11,22 @@
   flex-direction: column;
   gap: 14px;
 }
+
 .titleBox {
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e8eefb;
+  width: 100%;
+  padding: 10px;
 }
+
+.titleBox .upBlue {
+  height: 40px !important;
+  aspect-ratio: 1/1;
+  height: auto;
+}
+
 .title {
   color: #1463ff;
 }
@@ -34,10 +46,17 @@
   border-radius: 0;
   padding: 10px;
 }
+.h1 {
+  color: #1463ff;
+  font-family: "BeausiteClassicTrial-Black-BF6424edbfdb05c.otf", sans-serif;
+  font-size: 14px;
+  width: fit-content;
+  text-align: left;
+}
+
 .choices:focus {
-  border: none;
   box-shadow: none;
-  outline: none;
+  outline: #1463ff;
 }
 .footer {
   width: 10%;

@@ -75,13 +75,13 @@ export default function Graphs() {
       },
     ],
   };
-
+  console.log(lineData, "line data");
   return (
     allData && (
       <div className="graphs">
         <div className="titleBox">
           <h1 className="h1">{allData.title}</h1>{" "}
-          <img src="./images/upBlue.png" alt="upBlue" />
+          <img src="./images/upBlue.png" alt="upBlue" className="upBlue" />
         </div>
         <select className="choices" onChange={handleChoiceChange}>
           {allData?.keys?.map((choice, index) => {
